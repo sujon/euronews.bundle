@@ -34,6 +34,8 @@
 		<string>H.264</string>
 		<string>H.263</string>
 	</array>
+	<key>PlexClientPlatforms</key>
+	<string>*</string>
 	<key>PlexPluginMode</key>
 	<string>AlwaysOn</string>
 </dict>
