@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site site="http://(.+\.)euronews\.com"
+	plugin="http://(.+\.)euronews\.com.*player_live.*\.swf"
+	initialState="loading"
+	windowWidth="640"
+	windowHeight="394"
+	version="4.0">
+
+	<crop x="0" y="0" width="0" height="-34" />
+
+	<!-- LOADING -->
+	<state name="loading">
+		<event>
+			<condition>
+				<!-- Wait for the euronews videoplayer to load a json file -->
+				<url matches="euronews.*json" />
+			</condition>
+			<action>
+				<pause time="1000" />
+				<click x="320" y="280" />
+				<goto state="playing" />
+			</action>
+		</event>
+	</state>
+
+	<!-- PLAYING -->
+	<state name="playing">
+		<event>
+			<condition>
+				<command name="pause" />
+			</condition>
+			<action>
+				<click x="66" y="376" />
+				<goto state="playing" />
+			</action>
+		</event>
+	</state>
+
+	<!-- PAUSED -->
+	<state name="paused">
+		<event>
+			<condition>
+				<command name="play" />
+			</condition>
+			<action>
+				<click x="17" y="376" />
+				<goto state="playing" />
+			</action>
+		</event>
+	</state>
+</site>
